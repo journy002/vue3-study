@@ -4,24 +4,36 @@
   </div>
   <div>
     <h3>원룸샵</h3>
-    <h4 v-for="item in products" :key="item">
+    <!--  반복문 사용 방법
+      <h4 v-for="item in products" :key="item">
       <b>{{ item.name }}</b
       >({{ item.price }})
-    </h4>
-  </div>
-  <!-- <div>
-    <h4>{{ products[1] }}</h4>
-    <p>{{ price2 }} 만원</p>
+    </h4> -->
   </div>
   <div>
-    <h4>{{ products[2] }}</h4>
+    <h4>{{ products[0].name }}</h4>
+    <p>{{ price1 }} 만원</p>
+    <button @click="increase">허위 신고 매물</button
+    ><span>신고수 : {{ count[0] }}</span>
+  </div>
+  <div>
+    <h4>{{ products[1].name }}</h4>
+    <p>{{ price2 }} 만원</p>
+    <button @click="increase1">허위 신고 매물</button
+    ><span>신고수 : {{ count[1] }}</span>
+  </div>
+  <div>
+    <h4>{{ products[2].name }}</h4>
     <p>{{ price3 }} 만원</p>
-  </div> -->
+    <button @click="increase2">허위 신고 매물</button
+    ><span>신고수 : {{ count[2] }}</span>
+  </div>
 </template>
 
 <script>
 export default {
   name: "App",
+  // vue에서 data를 만들어서 사용하고 싶을때
   data() {
     return {
       price1: "150",
@@ -33,7 +45,22 @@ export default {
         { name: "인덕원원룸", price: "60만원" },
         { name: "과천원룸", price: "80만원" },
       ],
+      count: [0, 0, 0],
     };
+  },
+
+  // 함수를 만들어서 사용하고 싶을때
+  // vue에서 함수를 만들때 함수안에서 data값을 가져와 사용하고 싶으면 앞에 꼭 this를 사용해서 내 오브잭트에서 데이터를 사용하겠다 라고 알려줘야한다.
+  methods: {
+    increase() {
+      this.count[0] += 1;
+    },
+    increase1() {
+      this.count[1] += 1;
+    },
+    increase2() {
+      this.count[2] += 1;
+    },
   },
   components: {},
 };
