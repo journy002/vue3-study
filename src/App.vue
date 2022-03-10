@@ -11,21 +11,24 @@
     </h4> -->
   </div>
   <div>
+    <img src="./assets/room0.jpg" alt="" class="room-img" />
     <h4>{{ products[0].name }}</h4>
     <p>{{ price1 }} 만원</p>
-    <button @click="increase">허위 신고 매물</button
+    <button @click="count[0]++">허위 신고 매물</button
     ><span>신고수 : {{ count[0] }}</span>
   </div>
   <div>
+    <img src="./assets/room1.jpg" alt="" class="room-img" />
     <h4>{{ products[1].name }}</h4>
     <p>{{ price2 }} 만원</p>
-    <button @click="increase1">허위 신고 매물</button
+    <button @click="count[1]++">허위 신고 매물</button
     ><span>신고수 : {{ count[1] }}</span>
   </div>
   <div>
+    <img src="./assets/room2.jpg" alt="" class="room-img" />
     <h4>{{ products[2].name }}</h4>
     <p>{{ price3 }} 만원</p>
-    <button @click="increase2">허위 신고 매물</button
+    <button @click="count[2]++">허위 신고 매물</button
     ><span>신고수 : {{ count[2] }}</span>
   </div>
 </template>
@@ -51,17 +54,7 @@ export default {
 
   // 함수를 만들어서 사용하고 싶을때
   // vue에서 함수를 만들때 함수안에서 data값을 가져와 사용하고 싶으면 앞에 꼭 this를 사용해서 내 오브잭트에서 데이터를 사용하겠다 라고 알려줘야한다.
-  methods: {
-    increase() {
-      this.count[0] += 1;
-    },
-    increase1() {
-      this.count[1] += 1;
-    },
-    increase2() {
-      this.count[2] += 1;
-    },
-  },
+  methods: {},
   components: {},
 };
 </script>
@@ -82,5 +75,10 @@ body {
 .menu a {
   padding: 5px 10px;
   color: #ffffff;
+}
+
+.room-img {
+  margin: 0 3px;
+  width: calc(100% - 300px);
 }
 </style>
