@@ -1,4 +1,13 @@
 <template>
+  <!-- 모달 -->
+  <div class="black-bg" v-if="modal_st == true">
+    <div class="white-bg">
+      <h4>상세 페이지</h4>
+      <p>상세페이지 내용</p>
+      <button @click="modal_st = false">닫기</button>
+    </div>
+  </div>
+
   <div class="menu">
     <a v-for="(a, i) in menus" :key="i">{{ a }}</a>
   </div>
@@ -16,6 +25,7 @@
     <p>{{ price1 }} 만원</p>
     <button @click="count[0]++">허위 신고 매물</button
     ><span>신고수 : {{ count[0] }}</span>
+    <button @click="modal_st = true">상세 보기</button>
   </div>
   <div>
     <img src="./assets/room1.jpg" alt="" class="room-img" />
@@ -39,6 +49,7 @@ export default {
   // vue에서 data를 만들어서 사용하고 싶을때
   data() {
     return {
+      modal_st: false,
       price1: "150",
       price2: "70",
       price3: "80",
@@ -64,9 +75,33 @@ export default {
   text-align: center;
 }
 body {
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
 }
+
+/* 모달[S] */
+
+div {
+  box-sizing: border-box;
+}
+
+.black-bg {
+  position: fixed;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.white-bg {
+  padding: 20px;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+
+/* 모달[E] */
+
 .menu {
   padding: 15px 10px;
   background-color: darkslateblue;
